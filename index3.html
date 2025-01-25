@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,22 +21,23 @@
         }
 
         html, body {
-            font-family: 'Orbitron', sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
             background: var(--black);
             color: var(--white);
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-
         .nav {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            padding: 2rem;
+            padding: 1rem 2rem;
             z-index: 100;
             transition: background 0.3s ease;
+            background: rgba(0, 0, 0, 0.4);
+            box-shadow: 0 4px 12px rgba(238, 238, 238, 0.1);
         }
 
         .nav-inner {
@@ -56,6 +57,10 @@
             letter-spacing: 2px;
         }
 
+        .nav-links {
+            display: flex;
+        }
+
         .nav-links a {
             color: var(--white);
             text-decoration: none;
@@ -68,6 +73,20 @@
 
         .nav-links a:hover {
             color: var(--neon-purple);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--white);
+            margin: 2px 0;
+            transition: 0.4s;
         }
 
         .hero {
@@ -102,6 +121,7 @@
 
         .hero-text {
             flex: 1;
+            z-index: 1;
         }
 
         .hero h1 {
@@ -125,15 +145,18 @@
             display: inline-block;
             padding: 1rem 2rem;
             font-size: 1.2rem;
+            border-radius: 9px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
             text-decoration: none;
-            background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
-            color: var(--black);
+            background: linear-gradient(45deg, rgb(168, 168, 168), rgb(255, 255, 255));
+            color: black ;
             border: none;
             cursor: pointer;
             font-family: inherit;
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: transform 0.3s ease;
+            font-weight: bolder;
         }
 
         .cta-button:hover {
@@ -158,7 +181,7 @@
             height: 100%;
             position: absolute;
             transform-style: preserve-3d;
-            transition: transform 0.1s ease;
+            animation: rotate 20s infinite linear;
         }
 
         .hologram-face {
@@ -177,6 +200,10 @@
         .hologram-face:nth-child(5) { transform: rotateX(90deg) translateZ(150px); }
         .hologram-face:nth-child(6) { transform: rotateX(-90deg) translateZ(150px); }
 
+        @keyframes rotate {
+            0% { transform: rotateX(0deg) rotateY(0deg); }
+            100% { transform: rotateX(360deg) rotateY(360deg); }
+        }
 
         .about {
             padding: 10rem 2rem;
@@ -210,8 +237,9 @@
 
         .about-image {
             width: 100%;
-            height: 60vh;
-            background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+            height: 90vh;
+            background: rgba(68, 68, 68, 0.0);
+            border-radius: 9px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -221,7 +249,9 @@
         }
 
         .features {
+            margin-top: -12px;
             padding: 10rem 2rem;
+            margin-bottom: 10px;
             background: linear-gradient(45deg, rgba(0,243,255,0.05) 0%, rgba(188,19,254,0.05) 100%);
         }
 
@@ -254,7 +284,9 @@
         }
 
         .gallery {
-            padding: 10rem 2rem;
+            
+            margin-top: -12px;
+            margin-bottom: -12px;
         }
 
         .gallery-grid {
@@ -267,12 +299,14 @@
 
         .gallery-item {
             width: 100%;
-            height: 60vh;
-            background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+            height: 80vh;
+            border-radius: 12px;
+            box-shadow: 2px 4px 32px rgba(255, 255, 255, 0.0);
+            background: rgba(65, 65, 65, 0.0);
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 2rem;
+            font-size: 3rem;
             color: var(--black);
             text-transform: uppercase;
         }
@@ -341,9 +375,12 @@
         button {
             padding: 1rem 2rem;
             font-size: 1.2rem;
-            background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+            border-radius: 9px ;
+            font-weight: bolder;
+            background: linear-gradient(45deg, rgb(204, 204, 204), white);
             color: var(--black);
             border: none;
+            color: rgb(5, 72, 96) ;
             cursor: pointer;
             font-family: inherit;
             text-transform: uppercase;
@@ -408,6 +445,11 @@
             .hero-hologram {
                 height: 40vh;
                 margin-top: 2rem;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                z-index: 0;
             }
 
             .about-content {
@@ -424,21 +466,60 @@
 
             .nav-links {
                 display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100vh;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.9);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                margin: 1rem 0;
+                font-size: 1.5rem;
+            }
+
+            .hamburger {
+                display: flex;
+                z-index: 101;
+            }
+
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(45deg) translate(-5px, -6px);
             }
         }
     </style>
 </head>
 <body>
-
     <nav class="nav">
         <div class="nav-inner">
             <a href="/" class="logo">HoloCraft</a>
             <div class="nav-links">
-                <a href="#about">Über uns</a>
+                <a href="#about">About</a>
                 <a href="#features">Features</a>
-                <a href="#gallery">Galerie</a>
-                <a href="#specs">Spezifikationen</a>
-                <a href="#contact">Kontakt</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#specs">Specifications</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
     </nav>
@@ -447,9 +528,9 @@
         <section class="hero">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>Die Zukunft der Hologramme</h1>
-                    <p>Erleben Sie den HoloProjector - die nächste Generation der interaktiven 3D-Visualisierung.</p>
-                    <a href="#contact" class="cta-button">Jetzt entdecken</a>
+                    <h1>The Future of Holograms</h1>
+                    <p>Experience the HoloProjector - the next generation of interactive 3D visualization.</p>
+                    <a href="#contact" class="cta-button">Discover Now</a>
                 </div>
                 <div class="hero-hologram">
                     <div class="hologram-container">
@@ -469,11 +550,12 @@
         <section class="about" id="about">
             <div class="about-content">
                 <div class="about-text">
-                    <h2>Revolutionäre Hologramm-Technologie</h2>
-                    <p>Der HoloProjector von HoloCraft Technologies ist die Zukunft der Mensch-Maschine-Interaktion. Mit unserer bahnbrechenden Gestensteuerungstechnologie können Sie Hologramme mit präzisen Handbewegungen manipulieren und steuern. Erleben Sie eine neue Dimension der Interaktivität und tauchen Sie ein in die Welt der dreidimensionalen Visualisierung.</p>
+                    <h2>Revolutionary Hologram Technology</h2>
+                    <p>The HoloProjector by HoloCraft Technologies is the future of human-machine interaction. With our groundbreaking gesture control technology, you can manipulate and control holograms with precise hand movements. Experience a new dimension of interactivity and immerse yourself in the world of three-dimensional visualization.</p>
+                    <p>Our advanced AI-driven software allows for real-time rendering of complex 3D models, making it perfect for fields such as architecture, medical imaging, and product design. The HoloProjector's unique ability to project holograms in mid-air without the need for special glasses or headsets sets it apart from traditional AR and VR solutions.</p>
                 </div>
                 <div class="about-image">
-                    Platzhalterbild
+                    <img class="img1" src="Überschrift_hinzufügen__2_-removebg-preview.png" >
                 </div>
             </div>
         </section>
@@ -482,26 +564,26 @@
             <div class="features-grid">
                 <div class="feature">
                     <span class="feature-number">01</span>
-                    <h3>Präzise Gestensteuerung</h3>
-                    <p>Steuern Sie Hologramme mit natürlichen und intuitiven Handbewegungen. Unsere fortschrittlichen Sensoren erfassen selbst die feinsten Gesten für eine unvergleichliche Präzision.</p>
+                    <h3>Precise Gesture Control</h3>
+                    <p>Control holograms with natural and intuitive hand movements. Our advanced sensors capture even the finest gestures for unparalleled precision, allowing for seamless interaction with complex 3D models.</p>
                 </div>
                 <div class="feature">
                     <span class="feature-number">02</span>
-                    <h3>Hochauflösende Hologramme</h3>
-                    <p>Genießen Sie kristallklare 3D-Projektionen mit beeindruckender Detailgenauigkeit. Der HoloProjector erzeugt lebensechte Hologramme mit einer Auflösung von bis zu 4K.</p>
+                    <h3>High-Resolution Holograms</h3>
+                    <p>Enjoy crystal-clear 3D projections with impressive detail accuracy. The HoloProjector generates lifelike holograms with a resolution of up to 4K, providing an immersive visual experience.</p>
                 </div>
                 <div class="feature">
                     <span class="feature-number">03</span>
-                    <h3>Vielseitige Anwendungen</h3>
-                    <p>Von Produktdesign über medizinische Visualisierung bis hin zu interaktiven Präsentationen - der HoloProjector eröffnet endlose Möglichkeiten in verschiedenen Branchen.</p>
+                    <h3>Versatile Applications</h3>
+                    <p>From product design to medical visualization to interactive presentations - the HoloProjector opens up endless possibilities across various industries, revolutionizing the way we interact with digital information.</p>
                 </div>
             </div>
         </section>
 
         <section class="gallery" id="gallery">
             <div class="gallery-grid">
-                <div class="gallery-item">Platzhalterbild 1</div>
-                <div class="gallery-item">Platzhalterbild 2</div>
+                <div class="gallery-item"> <img class="img2.1" src="Überschrift_hinzufügen__4_-removebg-preview.png"> </div>
+                <div class="gallery-item"> <img class="img2.2" src="Überschrift_hinzufügen__5_-removebg-preview.png"> </div>
             </div>
         </section>
 
@@ -509,31 +591,31 @@
             <div class="features-grid">
                 <div class="feature">
                     <span class="feature-number">04</span>
-                    <h3>Technische Spezifikationen</h3>
-                    <p>Auflösung: 4K (3840x2160)<br>
-                       Projektionsbereich: 1m³<br>
-                       Gestenerkennungsgenauigkeit: 0.1mm<br>
-                       Latenz: &lt;10ms</p>
+                    <h3>Technical Specifications</h3>
+                    <p>Resolution: 4K (3840x2160)<br>
+                       Projection Area: 1m³<br>
+                       Gesture Recognition Accuracy: 0.1mm<br>
+                       Latency: &lt;10ms</p>
                 </div>
                 <div class="feature">
                     <span class="feature-number">05</span>
-                    <h3>Konnektivität</h3>
+                    <h3>Connectivity</h3>
                     <p>HDMI 2.1, USB-C, Wi-Fi 6, Bluetooth 5.0<br>
-                       Kompatibel mit Windows, macOS, iOS und Android</p>
+                       Compatible with Windows, macOS, iOS, and Android</p>
                 </div>
                 <div class="feature">
                     <span class="feature-number">06</span>
-                    <h3>Energieeffizienz</h3>
-                    <p>Stromverbrauch: 80W (Betrieb), 2W (Standby)<br>
-                       Automatische Abschaltung bei Nichtbenutzung<br>
-                       EnergyStar-zertifiziert</p>
+                    <h3>Energy Efficiency</h3>
+                    <p>Power Consumption: 80W (Operation), 2W (Standby)<br>
+                       Automatic shutdown when not in use<br>
+                       EnergyStar certified</p>
                 </div>
             </div>
         </section>
 
         <section class="contact" id="contact">
             <div class="contact-content">
-                <h2>Kontakt</h2>
+                <h2>Contact</h2>
                 <form id="contact-form">
                     <div class="form-group">
                         <input type="text" id="name" required>
@@ -545,9 +627,9 @@
                     </div>
                     <div class="form-group">
                         <textarea id="message" required></textarea>
-                        <label for="message">Nachricht</label>
+                        <label for="message">Message</label>
                     </div>
-                    <button type="submit">Senden</button>
+                    <button type="submit">Send</button>
                 </form>
             </div>
         </section>
@@ -561,16 +643,27 @@
 
     <footer>
         <div class="footer-content">
-            <p>&copy; 2024 HoloCraft Technologies</p>
+            <p>&copy; 2025 HoloCraft Technologies</p>
             <div class="footer-links">
-                <a href="/privacy">Datenschutz</a>
-                <a href="/imprint">Impressum</a>
+                <a href="/privacy"><u>Privacy Policy</u></a>
+                <a href="/imprint"><u>Imprint</u></a>
+                <a href="/contact"><u>Contact</u></a>
+                <a href="invest/"><u>Invest</u></a>
             </div>
         </div>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Mobile menu toggle
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+
             // 3D hologram control
             const hologram = document.querySelector('.hologram');
             const hologramContainer = document.querySelector('.hologram-container');
@@ -627,7 +720,7 @@
                 form.addEventListener('submit', (e) => {
                     e.preventDefault();
                     // Here would be the form submission logic
-                    alert('Danke für Ihre Nachricht. Wir werden uns bald bei Ihnen melden.');
+                    alert('Thank you for your message. We will get back to you soon.');
                 });
             }
 
