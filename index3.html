@@ -36,8 +36,7 @@
             padding: 1rem 2rem;
             z-index: 100;
             transition: background 0.3s ease;
-            background: rgba(0, 0, 0, 0.4);
-            box-shadow: 0 4px 12px rgba(238, 238, 238, 0.1);
+            
         }
 
         .nav-inner {
@@ -433,6 +432,21 @@
             color: var(--neon-purple);
         }
 
+        @media (min-width: 908px) {
+            .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem 2rem;
+            z-index: 100;
+            transition: background 0.3s ease;
+            background: rgba(0, 0, 0, 0.4);
+            box-shadow: 0 4px 32px rgba(255, 255, 255, 0.1);
+        }
+
+        }
+        
         @media (max-width: 768px) {
             .hero-content {
                 flex-direction: column;
