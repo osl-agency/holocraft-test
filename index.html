@@ -13,26 +13,36 @@
         }
 
         :root {
-            --primary: #00b3ff;
+            --primary: #31cfff;
+            --secondary: #185b75;
             --background: #0F0F0F;
+            --text: #333333;
+            --light-bg: #eeeeee;
         }
 
         body {
-            background-color: #F8F8F8;
+            background-color: rgb(242, 242, 242);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
 
         .navbar {
             background-color: var(--background);
-            padding: 1rem 2rem;
+            padding: 1rem 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 4px 32px rgba(0, 0, 0, 0.2);
         }
 
         .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -59,203 +69,226 @@
             color: white;
             text-decoration: none;
             font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
         }
 
         .cta-button {
-            background: linear-gradient(135deg, #133e57 0%, #45CAFF 100%);
+            background: linear-gradient(135deg, rgb(0, 200, 255), rgb(89, 0, 177) );
             color: white;
+            box-shadow: 0 4px 32px rgba(0, 0, 0, 0.3);
             padding: 0.75rem 1.5rem;
             border-radius: 4px;
             text-decoration: none;
             font-size: 0.9rem;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-            transition: 0.4s ease-in-out;
+            transition: opacity 0.3s ease;
+            border-radius: 6px;
         }
 
-        .cta-button:hover{
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
-            transition: 0.4s ease-in-out;
+        .cta-button:hover {
+            opacity: 0.9;
         }
 
         .hero {
             background-color: rgb(255, 255, 255);
-            min-height: 80vh;
-            padding: 8rem 2rem 4rem;
-            color: #333;
+            padding: 8rem 0 4rem;
             position: relative;
             overflow: hidden;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 60px;
-            left: 0;
-            right: 50px;
-            bottom: 0;
-            background-image: url('IMG_0035.jpeg');
-            background-size: contain;
-            background-position: right;
-            background-repeat: no-repeat;
-            opacity: 2;
-            z-index: 1;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(255, 255, 255, 0.0);
-            z-index: 2;
-        }
-
         .hero-content {
-            position: relative;
-            z-index: 3;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding-top: 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .hero-text {
+            flex: 1;
+            max-width: 600px;
         }
 
         .hero h1 {
-            font-size: 4rem;
-            max-width: 800px;
+            font-size: 3.5rem;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            line-height: 1.2;
         }
 
-        .meta {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-            color: #888;
-            font-size: 0.9rem;
-        }
-
-        .meta a {
-            color: var(--primary);
-            text-decoration: none;
-        }
-
-        .breadcrumb {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 2rem;
-        }
-
-        .breadcrumb a {
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
             color: #666;
-            text-decoration: none;
         }
 
-        .breadcrumb span {
-            color: var(--primary);
+        .hero-image {
+            flex: 1;
+            text-align: right;
         }
 
-        .content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.16);
+        }
+
+        .section {
+            padding: 6rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .features {
+            background: rgb(245, 245, 245);
             display: grid;
-            grid-template-columns: 300px 1fr;
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
         }
 
-        .card {
-            background: linear-gradient(135deg, #0F0F0F 0%, #1A2F35 100%);
-            color: white;
-            padding: 2rem;
-            border-radius: 8px;
-            position: sticky;
-            top: 100px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.34);
-        }
-
-        .card h3 {
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-
-        .card p {
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-
-        .learn-more {
-            display: inline-block;
-            background: linear-gradient(135deg, #133e57 0%, #45CAFF 100%);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 4px;
-            text-decoration: none;
-        }
-
-        .main-content {
+        .feature {
             background: white;
             padding: 2rem;
             border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
         }
 
-        .main-content h2 {
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: rgb(0, 191, 255);
+        }
+
+        .feature p {
+            color: #666;
+        }
+
+        .investors-section {
+            background: var(--background);
+            color: white;
+        }
+
+        .investor-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .investor-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .investor-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .investor-card p {
+            margin-bottom: 1.5rem;
+        }
+
+
+        .product-showcase {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .product-image {
+            flex: 1;
+        }
+
+        .product-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .product-description {
+            flex: 1;
+        }
+
+        .product-description h2 {
             font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-description p {
             margin-bottom: 1.5rem;
         }
 
-        .main-content p {
-            line-height: 1.8;
-            color: #444;
-            margin-bottom: 1.5rem;
+        .testimonials {
+            background: rgb(0, 0, 0);
+            color: white;
         }
 
-        #about {
-            background-color: #f9f9f9;
-            padding: 4rem 2rem;
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
         }
 
-        #about .section-content {
-            max-width: 800px;
-            margin: 0 auto;
+        .testimonial {
+            background: rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            border-radius: 8px;
         }
 
-        #about h2 {
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+        }
+
+        .full-width-cta {
+            background: linear-gradient(135deg, rgba(32, 214, 255, 0.823) , black 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .full-width-cta h2 {
             font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: #333;
+            margin-bottom: 1rem;
         }
 
-        #about p {
-            line-height: 1.8;
-            color: #555;
-            margin-bottom: 1.5rem;
-        }
-
-        .ul li:hover{
-           color: #ffffff;
-           font-style: unset;
+        .full-width-cta p {
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
         }
 
         .footer {
             background-color: var(--background);
-            color: rgb(203, 202, 202);
-            padding: 4rem 2rem;
-            width: 100%;
+            color: white;
+            padding: 4rem 0;
         }
 
         .footer-content {
             display: flex;
-            flex-wrap: wrap;
             justify-content: space-between;
-            max-width: 1200px;
-            margin: 0 auto;
+            flex-wrap: wrap;
         }
 
         .footer-column {
             flex: 1;
             min-width: 200px;
-            margin-right: 2rem;
             margin-bottom: 2rem;
         }
 
@@ -267,7 +300,6 @@
 
         .footer-column ul {
             list-style-type: none;
-            padding: 0;
         }
 
         .footer-column ul li {
@@ -277,13 +309,11 @@
         .footer-column a {
             color: #ccc;
             text-decoration: none;
-            transition: color 0.3s ease-in-out;
+            transition: color 0.3s ease;
         }
 
         .footer-column a:hover {
-            color: rgb(255, 255, 255);
-            font-weight: 550;
-            transition: 0.2s ease-in-out;
+            color: white;
         }
 
         .social-links {
@@ -299,18 +329,6 @@
 
         .social-links a:hover {
             color: var(--primary);
-        }
-
-        /* New styles for full-width content above footer */
-        .full-width-content {
-            width: 100%;
-            background-color: #f0f0f0;
-            padding: 4rem 2rem;
-        }
-
-        .full-width-content .section-content {
-            max-width: 1200px;
-            margin: 0 auto;
         }
 
         /* Mobile menu styles */
@@ -363,25 +381,6 @@
             font-size: 1.1rem;
         }
 
-        .article{
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.34);
-        }
-
-
-
-        @media (max-width: 1249px) {
-            .hero::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(255, 255, 255, 0.4);
-            z-index: 2;
-        }
-        }
-
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -391,61 +390,45 @@
                 display: block;
             }
 
+            .hero-content {
+                flex-direction: column;
+            }
+
+            .hero-text, .hero-image {
+                text-align: center;
+            }
+
             .hero h1 {
                 font-size: 2.5rem;
             }
 
-            .content {
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .product-showcase {
+                flex-direction: column;
+            }
+
+            .testimonial-grid {
                 grid-template-columns: 1fr;
             }
 
             .footer-content {
                 flex-direction: column;
             }
-
-            .footer-column {
-                margin-right: 0;
-            }
-
-            .hero::before {
-            content: '';
-            position: absolute;
-            top: 0px;
-            left: 0;
-            right: 0px;
-            bottom: 0;
-            background-image: url('IMG_0035.jpeg');
-            background-size: contain;
-            background-position: right;
-            background-repeat: no-repeat;
-            
-            opacity: 2;
-            z-index: 1;
-        }
-
-            .hero::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(255, 255, 255, 0.5);
-            z-index: 2;
-        }
         }
     </style>
 </head>
 <body>
     <nav class="navbar">
-        <div class="nav-container">
+        <div class="container nav-container">
             <a href="/" class="logo">Holo<span>Craft</span></a>
             <div class="nav-links">
-                <a href="/technology">Technology</a>
-                <a href="/solutions">Solutions</a>
-                <a href="/industries">Industries</a>
-                <a href="/about">About Us</a>
-                <a href="/contact" class="cta-button">Contact Us</a>
+                <a href="#features">Features</a>
+                <a href="#product">Product</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#contact" class="cta-button">Contact Us</a>
             </div>
             <button class="menu-toggle">☰</button>
         </div>
@@ -454,66 +437,93 @@
     <div class="mobile-menu">
         <button class="mobile-menu-close">×</button>
         <div class="mobile-menu-links">
-            <a href="/technology">Technology</a>
-            <a href="/solutions">Solutions</a>
-            <a href="/industries">Industries</a>
-            <a href="/about">About Us</a>
-            <a href="/contact" class="cta-button">Contact Us</a>
+            <a href="#features">Features</a>
+            <a href="#product">Product</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#contact" class="cta-button">Contact Us</a>
         </div>
     </div>
 
     <header class="hero">
-        <div class="hero-content">
-            <h1>Revolutionize 3D Modeling with HoloCraft Technologies</h1>
-            <div class="meta">
-                <span>Founded: January, 2025</span>
-                <span>-</span>
-                <span><a href="/about">Learn More About Us</a></span>
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>Revolutionize 3D Modeling with HoloCraft</h1>
+                <p>Experience the future of design with our cutting-edge holographic technology.</p>
+                <a href="#contact" class="cta-button">Get Started</a>
+            </div>
+            <div class="hero-image">
+                <img src=" Überschrift_hinzufügen__1_-removebg-preview.png " alt="HoloCraft Device">
             </div>
         </div>
     </header>
 
-    <div class="breadcrumb">
-        <a href="/">Home</a> > <span>About HoloCraft Technologies</span>
-    </div>
-
-    <main class="content">
-        <aside>
-            <div class="card">
-                <h3>Experience the Future of 3D Visualization</h3>
-                <p>HoloCraft Technologies specializes in groundbreaking holographic solutions, enabling seamless interaction with your 3D models like never before.</p>
-                <a href="/technology" class="learn-more">Explore Our Technology</a>
+    <section id="features" class="section">
+        <div class="container">
+            <h2 class="section-title">Why Choose HoloCraft?</h2>
+            <div class="features">
+                <div class="feature">
+                    <h3>Intuitive Interface</h3>
+                    <p>Our user-friendly interface makes 3D modeling accessible to everyone, from beginners to experts.</p>
+                </div>
+                <div class="feature">
+                    <h3>Real-time Collaboration</h3>
+                    <p>Work seamlessly with team members across the globe in real-time holographic environments.</p>
+                </div>
+                <div class="feature">
+                    <h3>AI-Powered Assistance</h3>
+                    <p>Let our AI assist you in creating complex models and optimizing your designs for efficiency.</p>
+                </div>
             </div>
-        </aside>
-
-        <article class="main-content">
-            <h2>Empowering Creativity in 3D Modeling</h2>
-            <p>At HoloCraft Technologies, our mission is to enhance how designers, engineers, and creators visualize and interact with their 3D models. Using cutting-edge holographic projection, we bring your designs to life, bridging the gap between imagination and reality.</p>
-            <p>With intuitive hand gestures and high-resolution holograms, our technology allows for unparalleled precision and engagement in model manipulation and visualization.</p>
-        </article>
-        <section id="about" class="section">
-            <div class="section-content">
-                <h2>Pioneering the Future of 3D Visualization</h2>
-                <p>At HoloCraft Technologies, we're not just creating technology; we're reshaping the landscape of 3D modeling and visualization. Our groundbreaking holographic solutions empower designers, engineers, and creators to interact with their 3D models in ways previously thought impossible.</p>
-                <p>Founded in 2025 by a team of visionary engineers and designers, HoloCraft has quickly become the industry leader in holographic projection and AI-assisted modeling. Our commitment to innovation and user-centric design has earned us the trust of Fortune 500 companies and cutting-edge startups alike.</p>
-                <p>Join us on our journey to transform the way the world creates, visualizes, and interacts with 3D content. Experience the future of design with HoloCraft Technologies.</p>
-            </div>
-        </section>
-    </main>
-    
-    <section class="full-width-content">
-        <div class="section-content">
-            <h2>Ready to Transform Your 3D Workflow?</h2>
-            <p>‎ </p>
-            <p>Get in touch with our team to schedule a demo or learn more about our solutions.</p>
-            <p>‎ </p>
-            <p>‎ </p>
-            <a href="#" class="cta-button">Contact Us</a>
         </div>
     </section>
+
+    <section id="product" class="section">
+        <div class="container product-showcase">
+            <div class="product-image">
+                <img src=" Überschrift hinzufügen.png ">
+            </div>
+            <div class="product-description">
+                <h2>HoloCraft Pro</h2>
+                <p>Experience the pinnacle of 3D modeling with HoloCraft Pro. Our flagship product combines state-of-the-art holographic technology with powerful modeling tools to bring your ideas to life.</p>
+                <p>Whether you're an architect, product designer, or visual effects artist, HoloCraft Pro provides the tools you need to create stunning 3D models with unprecedented ease and precision.</p>
+                <a href="#contact" class="cta-button">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="investors" class="section investors-section">
+        <div class="container">
+            <h2 class="section-title">Invest in the Future of 3D Visualization</h2>
+            <div class="investor-grid">
+                <div class="investor-card">
+                    <h3>Investor Relations</h3>
+                    <p>Join HoloCraft Technologies in revolutionizing the way we create, interact with, and experience 3D models. We're open to discussing investment opportunities and can provide a detailed business plan upon request.</p>
+                    <a href="investors.html#contact" class="cta-button">Contact Investor Relations</a>
+                </div>
+                <div class="investor-card">
+                    <h3>Upcoming Kickstarter</h3>
+                    <p>We're planning to launch a Kickstarter campaign to bring HoloCraft to a wider audience and accelerate our development. Be among the first to experience the future of 3D modeling and secure exclusive early-adopter benefits.</p>
+                    <a href="investors.html#kickstarter" class="cta-button">Learn About Kickstarter</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+ 
+
     
+
+    <section id="contact" class="section full-width-cta">
+        <div class="container">
+            <h2>Ready to Transform Your 3D Workflow?</h2>
+            <p>Get in touch with our team to schedule a demo or learn more about our solutions.</p>
+            <a href="investors.html#contact" class="cta-button">Contact Us</a>
+        </div>
+    </section>
+
     <footer class="footer">
-        <div class="footer-content">
+        <div class="container footer-content">
             <div class="footer-column">
                 <h3>HoloCraft</h3>
                 <p>Revolutionizing 3D visualization through cutting-edge holographic technology.</p>
@@ -524,12 +534,12 @@
                 </div>
             </div>
             <div class="footer-column">
-                <h3>Solutions</h3>
+                <h3>Products</h3>
                 <ul>
-                    <li><a href="#">3D Modeling</a></li>
-                    <li><a href="#">Architectural Design</a></li>
-                    <li><a href="#">Product Visualization</a></li>
-                    <li><a href="#">Virtual Prototyping</a></li>
+                    <li><a href="#">HoloCraft Pro</a></li>
+                    <li><a href="#">HoloCraft Studio</a></li>
+                    <li><a href="#">HoloCraft Cloud</a></li>
+                    <li><a href="#">HoloCraft Mobile</a></li>
                 </ul>
             </div>
             <div class="footer-column">
@@ -545,9 +555,9 @@
                 <h3>Resources</h3>
                 <ul>
                     <li><a href="#">Documentation</a></li>
+                    <li><a href="#">Tutorials</a></li>
                     <li><a href="#">Blog</a></li>
                     <li><a href="#">Support</a></li>
-                    <li><a href="#">Terms of Service</a></li>
                 </ul>
             </div>
         </div>
