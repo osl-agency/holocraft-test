@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HoloCraft Technologies - Revolutionizing 3D Visualization</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        :root {
+            --primary: #31cfff;
+            --secondary: #185b75;
+            --background: #0F0F0F;
+            --text: #333333;
+            --light-bg: #eeeeee;
+        }
+
+        body {
+            background-color: rgb(242, 242, 242);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .navbar {
+            background-color: var(--background);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, rgb(0, 200, 255), rgb(89, 0, 177) );
+            color: white;
+            box-shadow: 0 4px 32px rgba(0, 0, 0, 0.3);
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: opacity 0.3s ease;
+            border-radius: 6px;
+        }
+
+        .cta-button:hover {
+            opacity: 0.9;
+        }
+
+        .hero {
+            background-color: rgb(255, 255, 255);
+            padding: 8rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .hero-text {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: #666;
+        }
+
+        .hero-image {
+            flex: 1;
+            text-align: right;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.16);
+        }
+
+        .section {
+            padding: 6rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .features {
+            background: rgb(245, 245, 245);
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .feature {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: rgb(0, 191, 255);
+        }
+
+        .feature p {
+            color: #666;
+        }
+
+        .product-showcase {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .product-image {
+            flex: 1;
+        }
+
+        .product-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .product-description {
+            flex: 1;
+        }
+
+        .product-description h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-description p {
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonials {
+            background: rgb(0, 0, 0);
+            color: white;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .testimonial {
+            background: rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+        }
+
+        .full-width-cta {
+            background: linear-gradient(135deg, rgba(32, 214, 255, 0.823) , black 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .full-width-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .full-width-cta p {
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .footer {
+            background-color: var(--background);
+            color: white;
+            padding: 4rem 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h3 {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-column ul {
+            list-style-type: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-column a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column a:hover {
+            color: white;
+        }
+
+        .social-links {
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            margin-right: 1rem;
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Mobile menu styles */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 300px;
+            height: 100%;
+            background-color: var(--background);
+            z-index: 1001;
+            transition: right 0.3s ease-in-out;
+            padding: 2rem;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .mobile-menu-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+
+        .mobile-menu-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero-content {
+                flex-direction: column;
+            }
+
+            .hero-text, .hero-image {
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .product-showcase {
+                flex-direction: column;
+            }
+
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="/" class="logo">Holo<span>Craft</span></a>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#product">Product</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#contact" class="cta-button">Contact Us</a>
+            </div>
+            <button class="menu-toggle">☰</button>
+        </div>
+    </nav>
+
+    <div class="mobile-menu">
+        <button class="mobile-menu-close">×</button>
+        <div class="mobile-menu-links">
+            <a href="#features">Features</a>
+            <a href="#product">Product</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#contact" class="cta-button">Contact Us</a>
+        </div>
+    </div>
+
+    <header class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>Revolutionize 3D Modeling with HoloCraft</h1>
+                <p>Experience the future of design with our cutting-edge holographic technology.</p>
+                <a href="#contact" class="cta-button">Get Started</a>
+            </div>
+            <div class="hero-image">
+                <img src=" Überschrift_hinzufügen__1_-removebg-preview.png " alt="HoloCraft Device">
+            </div>
+        </div>
+    </header>
+
+    <section id="features" class="section">
+        <div class="container">
+            <h2 class="section-title">Why Choose HoloCraft?</h2>
+            <div class="features">
+                <div class="feature">
+                    <h3>Intuitive Interface</h3>
+                    <p>Our user-friendly interface makes 3D modeling accessible to everyone, from beginners to experts.</p>
+                </div>
+                <div class="feature">
+                    <h3>Real-time Collaboration</h3>
+                    <p>Work seamlessly with team members across the globe in real-time holographic environments.</p>
+                </div>
+                <div class="feature">
+                    <h3>AI-Powered Assistance</h3>
+                    <p>Let our AI assist you in creating complex models and optimizing your designs for efficiency.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="product" class="section">
+        <div class="container product-showcase">
+            <div class="product-image">
+                <img src=" Überschrift hinzufügen.png ">
+            </div>
+            <div class="product-description">
+                <h2>HoloCraft Pro</h2>
+                <p>Experience the pinnacle of 3D modeling with HoloCraft Pro. Our flagship product combines state-of-the-art holographic technology with powerful modeling tools to bring your ideas to life.</p>
+                <p>Whether you're an architect, product designer, or visual effects artist, HoloCraft Pro provides the tools you need to create stunning 3D models with unprecedented ease and precision.</p>
+                <a href="#contact" class="cta-button">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="section testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Clients Say</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <p>"HoloCraft has completely transformed our design process. We can now visualize and modify our architectural plans in real-time, saving us countless hours and improving client satisfaction."</p>
+                    <span class="testimonial-author">- Sarah Johnson, Lead Architect at DesignWorks</span>
+                </div>
+                <div class="testimonial">
+                    <p>"The AI-assisted modeling in HoloCraft Pro is a game-changer. It's like having a skilled 3D artist at your fingertips, helping you create complex models in a fraction of the time."</p>
+                    <span class="testimonial-author">- Mike Chen, VFX Supervisor at PixelMagic Studios</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section full-width-cta">
+        <div class="container">
+            <h2>Ready to Transform Your 3D Workflow?</h2>
+            <p>Get in touch with our team to schedule a demo or learn more about our solutions.</p>
+            <a href="investors.html#contact" class="cta-button">Contact Us</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-column">
+                <h3>HoloCraft</h3>
+                <p>Revolutionizing 3D visualization through cutting-edge holographic technology.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                    <a href="#" aria-label="Twitter">Twitter</a>
+                    <a href="#" aria-label="Instagram">Instagram</a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Products</h3>
+                <ul>
+                    <li><a href="#">HoloCraft Pro</a></li>
+                    <li><a href="#">HoloCraft Studio</a></li>
+                    <li><a href="#">HoloCraft Cloud</a></li>
+                    <li><a href="#">HoloCraft Mobile</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">Tutorials</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Support</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const mobileMenuClose = document.querySelector('.mobile-menu-close');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+        });
+
+        mobileMenuClose.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+    </script>
+</body>
+</html>
