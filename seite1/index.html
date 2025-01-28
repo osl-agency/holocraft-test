@@ -173,6 +173,35 @@
             color: #666;
         }
 
+        .investors-section {
+            background: var(--background);
+            color: white;
+        }
+
+        .investor-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .investor-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .investor-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .investor-card p {
+            margin-bottom: 1.5rem;
+        }
+
+
         .product-showcase {
             display: flex;
             align-items: center;
@@ -462,21 +491,28 @@
         </div>
     </section>
 
-    <section id="testimonials" class="section testimonials">
+    <section id="investors" class="section investors-section">
         <div class="container">
-            <h2 class="section-title">What Our Clients Say</h2>
-            <div class="testimonial-grid">
-                <div class="testimonial">
-                    <p>"HoloCraft has completely transformed our design process. We can now visualize and modify our architectural plans in real-time, saving us countless hours and improving client satisfaction."</p>
-                    <span class="testimonial-author">- Sarah Johnson, Lead Architect at DesignWorks</span>
+            <h2 class="section-title">Invest in the Future of 3D Visualization</h2>
+            <div class="investor-grid">
+                <div class="investor-card">
+                    <h3>Investor Relations</h3>
+                    <p>Join HoloCraft Technologies in revolutionizing the way we create, interact with, and experience 3D models. We're open to discussing investment opportunities and can provide a detailed business plan upon request.</p>
+                    <a href="investors.html#contact" class="cta-button">Contact Investor Relations</a>
                 </div>
-                <div class="testimonial">
-                    <p>"The AI-assisted modeling in HoloCraft Pro is a game-changer. It's like having a skilled 3D artist at your fingertips, helping you create complex models in a fraction of the time."</p>
-                    <span class="testimonial-author">- Mike Chen, VFX Supervisor at PixelMagic Studios</span>
+                <div class="investor-card">
+                    <h3>Upcoming Kickstarter</h3>
+                    <p>We're planning to launch a Kickstarter campaign to bring HoloCraft to a wider audience and accelerate our development. Be among the first to experience the future of 3D modeling and secure exclusive early-adopter benefits.</p>
+                    <a href="investors.html#kickstarter" class="cta-button">Learn About Kickstarter</a>
                 </div>
             </div>
         </div>
     </section>
+
+
+ 
+
+    
 
     <section id="contact" class="section full-width-cta">
         <div class="container">
