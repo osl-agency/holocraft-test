@@ -157,11 +157,16 @@
             background: linear-gradient(135deg, rgb(0, 208, 255), black);
             color: white;
             text-align: center;
+            padding-bottom: 3rem;
         }
 
         .kickstarter-content {
             max-width: 800px;
             margin: 0 auto;
+        }
+
+        .kickstarter-content .cta-button {
+            margin-top: 2rem;
         }
 
         .footer {
@@ -259,6 +264,57 @@
             letter-spacing: 0.5px;
         }
 
+        /* Mobile menu styles */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 300px;
+            height: 100%;
+            background-color: var(--background);
+            z-index: 1001;
+            transition: right 0.3s ease-in-out;
+            padding: 2rem;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .mobile-menu-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+
+        .mobile-menu-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5rem;
@@ -275,6 +331,18 @@
             .contact-form {
                 padding: 2rem;
             }
+
+            .nav-links {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
         }
     </style>
 </head>
@@ -290,8 +358,21 @@
                 <a href="#kickstarter">Kickstarter</a>
                 <a href="#contact" class="cta-button">Contact Us</a>
             </div>
+            <button class="menu-toggle">☰</button>
         </div>
     </nav>
+
+    <div class="mobile-menu">
+        <button class="mobile-menu-close">×</button>
+        <div class="mobile-menu-links">
+            <a href="index.html#features">Features</a>
+            <a href="index.html#product">Product</a>
+            <a href="index.html#about">About Us</a>
+            <a href="#investors">Investors</a>
+            <a href="#kickstarter">Kickstarter</a>
+            <a href="#contact">Contact Us</a>
+        </div>
+    </div>
 
     <header class="hero">
         <div class="container">
@@ -392,5 +473,20 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const mobileMenuClose = document.querySelector('.mobile-menu-close');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+        });
+
+        mobileMenuClose.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+    </script>
 </body>
 </html>
+
