@@ -7,7 +7,7 @@
     <style>
         :root {
             --primary-color: #00f2ff;
-            --background-color: #000000;
+            --background-color: #111111;
             --text-color: #ffffff;
             --text-secondary: rgba(255, 255, 255, 0.7);
             --border-color: rgba(255, 255, 255, 0.1);
@@ -242,12 +242,13 @@
         }
 
         .video-container img {
-             max-width: 50%;
+             max-width: 60%;
+             margin-left: 15%;
              text-align: center;
         }
 
         .video-preview {
-            margin-left: 25%;
+            margin-left: 40%;
             max-width: 50%;
             text-align: center;
             align-items: center;
@@ -483,6 +484,23 @@
 
         @media (max-width: 768px) {
 
+            .video-preview {
+            margin-left: 20%;
+            max-width: 67%;
+            text-align: center;
+            align-items: center;
+            height: auto;
+            display: block;
+        }
+
+        .video-container img{
+            max-width: 67%;
+            margin-left: 18%;
+        }
+
+        .hero img{
+            max-width: 64%;
+        }
            
             .nav-links, .nav-actions {
                 display: none;
@@ -603,13 +621,13 @@
         <section class="hero">
             <h1>PCBs without the hassle</h1>
             <p class="hero-subtitle">No setup required - just open a project and start designing. And Flux lives in the browser making collaboration a breeze.</p>
-            <img src="cold, smooth & tasty..png" alt="Flux Interface" style="width:  57%; border-radius: 12px; margin-top: 40px;">
+            <img src="cold, smooth & tasty..png" alt="Flux Interface" style="width:  64%; border-radius: 12px; margin-top: 40px;">
         </section>
 
         <section class="hero">
             <h1>AI Auto-Layout</h1>
             <p class="hero-subtitle">With just one click, Copilot tackles the repetitive task of routing your board, delivering clean, human-like results that are easy to iterate on.</p>
-            <img src="Hand based Object Controll.png" style="width: 57%; border-radius: 12px; margin-top: 40px;">
+            <img src="Hand based Object Controll.png" style="width: 64%; border-radius: 12px; margin-top: 40px;">
         </section>
 
         <footer>
